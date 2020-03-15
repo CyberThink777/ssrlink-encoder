@@ -138,10 +138,6 @@ servers.forEach(server => {
     delete server.proxy_apps;
     delete server.udpdns;
 });
-let tmp = [];
 servers.forEach(server => {
-    tmp.push(encode(server))
-})
-tmp.forEach(ss => {
-    console.log(ss)
+    console.log(encode(server))
 })
