@@ -1,4 +1,4 @@
-var Base64 = require('js-base64').Base64;
+const Base64 = require('js-base64').Base64;
 Base64.extendString();
 /* structure Server {
     this.server
@@ -9,8 +9,9 @@ Base64.extendString();
     this.group
 } */
 
-// This function takes Server object and return ssr link
-
+/* This function takes Server object and return ssr link
+ * @param {server} A server object according to Server struct above
+ */
 function encode(server) {
     let ssrlink = `${server.server}:${server.server_port}:origin:${server.method}:plain:${server.password.toBase64URI()}/?remarks=${server.remarks.toBase64URI()}&group=${server.group.toBase64URI()}`;
     ssrlink = Base64.encodeURI(ssrlink);
