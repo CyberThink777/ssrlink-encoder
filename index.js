@@ -137,7 +137,6 @@ servers.forEach(server => {
     delete server.ipv6;
     delete server.proxy_apps;
     delete server.udpdns;
+    server.group = "Testing";
+    console.log(encode(server));
 });
-servers.forEach(server => {
-    console.log(encode(server))
-})

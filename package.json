@@ -1,7 +1,7 @@
 {
-  "name": "ss-parser",
+  "name": "ssrlink-encoder",
   "version": "0.0.1",
-  "description": "ss android json to ss links",
+  "description": "ss android json to ssr links",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

@@ -1,21 +1,20 @@
 var Base64 = require('js-base64').Base64;
-
-/* function Server(name, port, pass, method, remarks) {
-    this.server = name;
-    this.server_port = port;
-    this.password = pass;
-    this.method = method;
-    this.remarks = remarks;
+Base64.extendString();
+/* structure Server {
+    this.server
+    this.server_port
+    this.password
+    this.method
+    this.remarks
+    this.group
 } */
 
-// This function takes Server object and return ss link of this format
-// ss://AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFF1234567#This is a remarks
-// from aes-256-cfb:thisispassword@wow.example:8080
+// This function takes Server object and return ssr link
 
 function encode(server) {
-    let sslink = `${server.method}:${server.password}@${server.server}:${server.server_port}`;
-    sslink = Base64.encodeURI(sslink);
-    return `ss://${sslink}#${server.remarks}`;
+    let ssrlink = `${server.server}:${server.server_port}:origin:${server.method}:plain:${server.password.toBase64URI()}/?remarks=${server.remarks.toBase64URI()}&group=${server.group.toBase64URI()}`;
+    ssrlink = Base64.encodeURI(ssrlink);
+    return `ssr://${ssrlink}`;
 }
 
 module.exports = encode;
