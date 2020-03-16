@@ -1,5 +1,5 @@
 # ShadowSocksR Link encoder
-## A simple NodeJS app that takes JSON into SSR links
+## A simple NodeJS CLI app that takes JSON into SSR links
 
 ### Installing Dependencies
 ` npm install `
