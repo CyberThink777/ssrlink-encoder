@@ -1,4 +1,4 @@
-# SSR Link encoder
+# ShadowSocksR Link encoder
 ## A simple NodeJS app that takes JSON into SSR links
 
 ### Installing Dependencies
