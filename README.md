@@ -5,4 +5,4 @@
 ` npm install `
 
 ### Usage
-` npm start [FILE] <GroupName> ` or ` node index.js [FILE] <GroupName>
+` npm start [FILE] <GroupName> ` or ` node index.js [FILE] <GroupName> `
