@@ -1,8 +1,10 @@
 # ShadowSocksR Link encoder
-## A simple NodeJS CLI app that takes JSON into SSR links
+## A simple Rust CLI app that takes JSON into SSR links
 
-### Installing Dependencies
-` npm install `
+### Installing Dependencies for Compilation
+` cargo build `
 
 ### Usage
-` npm start [FILE] <GroupName> ` or ` node index.js [FILE] <GroupName> `
+` ssrencode [FILE] <GroupName> ` 
+or if you're using cargo
+` cargo run [FILE] <GroupName> `
