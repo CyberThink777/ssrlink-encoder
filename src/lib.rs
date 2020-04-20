@@ -12,15 +12,25 @@ struct Server {
 
 pub fn run(filename: &str, group: &str) {
     let contents = fs::read_to_string(filename).expect("Something went wrong when reading files");
-    let servers = parse(contents);
     let group_base_64 = base64::encode_config(group, base64::STANDARD_NO_PAD);
-    for server in servers {
-        encode_and_print(server, &group_base_64)
+    if contents.starts_with("{") {
+        let server = parse_one(contents);
+        encode_and_print(server, &group_base_64);
+    } else {
+        let servers = parse(contents);
+        for server in servers {
+            encode_and_print(server, &group_base_64)
+        }
     }
 }
 
 fn parse(data: String) -> Vec<Server> {
     serde_json::from_str(&data).expect("Error parsing JSON!")
+}
+
+fn parse_one(data: String) -> Server {
+    let server: Server = serde_json::from_str(&data).expect("Error parsing JSON!");
+    return server;
 }
 
 fn encode_and_print(server: Server, group: &String) {
